@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { firestore } from 'firebase-admin';
 import { initFirebaseAdminSDK } from '@/config/firebase-admin-config';
+import { NextRequest, NextResponse } from 'next/server';
 
 initFirebaseAdminSDK();
 const fsdb = firestore();
