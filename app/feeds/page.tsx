@@ -1,11 +1,10 @@
-// This is a Next.js Server Component. We omit "use client".
-
+import React from 'react';
 import FeedItemCard from './components/FeedItemCard';
 
 export default async function FeedsPage() {
   console.log('[Page] Rendering FeedsPage...');
-
   let feeds: any[] = [];
+
   try {
     const res = await fetch('http://localhost:3000/api/feeds', {
       cache: 'no-store',
