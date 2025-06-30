@@ -1,6 +1,6 @@
-import { firestore } from 'firebase-admin';
-import { initFirebaseAdminSDK } from '@/config/firebase-admin-config';
-import { NextRequest, NextResponse } from 'next/server';
+import { firestore } from "firebase-admin";
+import { initFirebaseAdminSDK } from "@/config/firebase-admin-config";
+import { NextRequest, NextResponse } from "next/server";
 
 initFirebaseAdminSDK();
 const fsdb = firestore();
@@ -11,6 +11,7 @@ export async function GET(request: NextRequest) {
     const snapshot = await fsdb.collection('feeds').get();
     const feeds = snapshot.docs.map((doc) => doc.data());
     console.log('[API] Fetched feeds count:', feeds.length);
+
     return NextResponse.json({ feeds });
   } catch (error) {
     console.error('[API] Error fetching feeds:', error);
